@@ -6,9 +6,6 @@ public class Mover : MonoBehaviour
 {
     public void MoveObject(GameObject gameObject)
     {
-        while(true)
-        {
-            gameObject.transform.Translate(transform.forward);
-        }
+        gameObject.transform.Translate(gameObject.transform.forward * Time.deltaTime);
     }
 }

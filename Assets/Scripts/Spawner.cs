@@ -7,15 +7,27 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _objectToSpawn;
-    [SerializeField] private Mover _mover;
+    [SerializeField] private Character _characterToSpawn;
 
     public void Work()
     {
-        var newCube = Instantiate(_objectToSpawn);
+        float minXValue = 0;
+        float minZValue = 0;
+
+        var newCube = Instantiate(_characterToSpawn.gameObject);
 
         newCube.transform.position = gameObject.transform.position;
 
-        _mover.MoveObject(newCube);
+        float newRotation = GetRotation();
+
+        newCube.transform.Rotate(minXValue, newRotation, minZValue);
+    }
+
+    private float GetRotation()
+    {
+        float minYValue = 0;
+        float maxYValue = 360;
+
+        return Random.Range(minYValue, maxYValue);
     }
 }
