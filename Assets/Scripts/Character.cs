@@ -7,6 +7,8 @@ public class Character : MonoBehaviour
 {
     [SerializeField] private Mover _mover;
 
+    private Vector3 _direction;
+
     private void Awake()
     {
         _mover = GetComponent<Mover>();
@@ -14,6 +16,11 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        _mover.MoveObject(gameObject);
+        _mover.MoveObject(_direction);
+    }
+
+    public void GetDirection(Vector3 direction)
+    {
+        _direction = direction;
     }
 }

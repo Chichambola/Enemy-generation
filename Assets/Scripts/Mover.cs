@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    public void MoveObject(GameObject gameObject)
+    public void MoveObject(Vector3 direction)
     {
-        gameObject.transform.Translate(gameObject.transform.forward * Time.deltaTime);
+        transform.Translate(direction * Time.deltaTime);
     }
 }
