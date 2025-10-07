@@ -25,11 +25,11 @@ public class SpawnHandler : MonoBehaviour
         {
             yield return wait;
 
-            InitiateSpawning();
+            InitiateSpawn();
         }
     }
 
-    private void InitiateSpawning()
+    private void InitiateSpawn()
     {
         int firstIndex = 0;
 
