@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Mover))]
 public class Character : MonoBehaviour
 {
-    [SerializeField] private Mover _mover;
+    private Mover _mover;
 
     private Vector3 _direction;
 
