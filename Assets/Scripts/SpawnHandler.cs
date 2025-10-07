@@ -9,21 +9,31 @@ public class SpawnHandler : MonoBehaviour
 {
     [SerializeField] private List<Spawner> _spawners;
 
-    private bool _isSpawning = true;
+    private Coroutine _coroutine;
+    private bool _isFirstIteration = true;
     private int _spawnRate = 2;
 
     private void Awake()
     {
-        StartCoroutine(SpawnTime());
+        _coroutine = StartCoroutine(Spawning());
     }
 
-    private IEnumerator SpawnTime()
+    private IEnumerator Spawning()
     {
-        while (_isSpawning) 
+        var wait = new WaitForSecondsRealtime(_spawnRate);
+
+        while (enabled) 
         {
+            if (_isFirstIteration)
+            {
+                _isFirstIteration = false;
+
+                yield return wait;
+            }
+
             ChooseSpawner();
 
-            yield return new WaitForSecondsRealtime(_spawnRate);
+            yield return wait;
         }
     }
 

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Random = UnityEngine.Random;
 using UnityEngine;
 
-
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Character _characterToSpawn;
