@@ -7,7 +7,7 @@ public class Character : MonoBehaviour
 {
     private Mover _mover;
 
-    private Vector3 _direction;
+    private Target _target;
 
     private void Awake()
     {
@@ -16,11 +16,11 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        _mover.MoveObject(_direction);
+        _mover.MoveObject(_target);
     }
 
-    public void GetDirection(Vector3 direction)
+    public void GetTarget(Target target)
     {
-        _direction = direction;
+        _target = target;
     }
 }

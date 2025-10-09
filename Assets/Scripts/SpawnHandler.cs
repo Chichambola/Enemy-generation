@@ -8,6 +8,7 @@ using UnityEngine;
 public class SpawnHandler : MonoBehaviour
 {
     [SerializeField] private List<Spawner> _spawners;
+    [SerializeField] private List<Target> _targets;
 
     private Coroutine _coroutine;
     private int _spawnRate = 2;
@@ -34,7 +35,8 @@ public class SpawnHandler : MonoBehaviour
         int firstIndex = 0;
 
         int randomSpawner = Random.Range(firstIndex, _spawners.Count);
+        int randomTarget = Random.Range(firstIndex, _targets.Count);
 
-        _spawners[randomSpawner].Spawn();
+        _spawners[randomSpawner].Spawn(_targets[randomTarget]);
     }
 }

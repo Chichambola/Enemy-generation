@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    public void MoveObject(Vector3 direction)
+    private int _moveSpeed = 5;
+    
+    public void MoveObject(Target target)
     {
-        transform.Translate(direction * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * _moveSpeed);
     }
 }

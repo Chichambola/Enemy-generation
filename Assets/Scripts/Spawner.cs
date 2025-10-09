@@ -8,12 +8,12 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private Character _character;
 
-    public void Spawn()
+    public void Spawn(Target target)
     {
         var direction = Random.insideUnitSphere;
 
         Character newChar = Instantiate(_character, transform.position, Quaternion.identity);
 
-        newChar.GetDirection(direction);
+        newChar.GetTarget(target);
     }
 }
